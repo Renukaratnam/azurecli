@@ -60,3 +60,12 @@ security_rule {
     environment = "dev"
   }
 }
+
+# associate subnet with nsg
+
+resource "azurerm_subnet_network_security_group_association" "renu-nsg-sn" {
+ subnet_id          = azurerm_subnet.renu-sn.id
+network_security_group_id  = azurerm_network_security_group.renu-nsg.id
+}
+
+
