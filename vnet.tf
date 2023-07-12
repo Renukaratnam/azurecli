@@ -69,3 +69,15 @@ network_security_group_id  = azurerm_network_security_group.renu-nsg.id
 }
 
 
+# public ip
+resource "azurerm_public_ip" "renu-pip" {
+  name                = "web-pip"
+  resource_group_name = azurerm_resource_group.renu-rg.name
+  location            = azurerm_resource_group.renu-rg.location
+  allocation_method   = "Static"
+
+  tags = {
+    environment = "dev"
+  }
+}
+
